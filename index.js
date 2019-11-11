@@ -19,10 +19,10 @@ app.disable('etag');
 
 
 // Connection URL
-const url = 'mongodb://admin:admin@35.225.220.91:27017';
+const url = 'mongodb://35.237.76.167:27017';
  
 // Database Name
-const DB_NAME = 'sopes1proyecto';
+const DB_NAME = 'SO1_Twitter';
 
 const COLLECITON_NAME = 'tweets';
 
@@ -282,7 +282,7 @@ app.get('/api/tweets', (req, res) => {
 
 app.get('/api/tweet', (req, res) => {
 
-    let categoria = '#';
+    /*let categoria = '#';
     const url = req.url;    
     const catindex = url.indexOf('%23');
 
@@ -295,13 +295,14 @@ app.get('/api/tweet', (req, res) => {
             categoria = urlcat;
         }
         
-    }
+    }*/
     
-    categoria = categoria.replace('%23', '#');
+    //categoria = categoria.replace('%23', '#');
 
     const usr = req.query.usr;
     const nom = req.query.nom;
     const txt = req.query.txt;
+    const categoria = req.query.tag;
 
     try {
 

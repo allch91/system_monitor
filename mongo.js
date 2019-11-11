@@ -1,10 +1,10 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // Connection URL
-const url = 'mongodb://admin:admin@35.225.220.91:27017';
+const url = 'mongodb://35.237.76.167:27017';
  
 // Database Name
-const DB_NAME = 'sopes1proyecto';
+const DB_NAME = 'SO1_Twitter';
 
 const COLLECITON_NAME = 'tweets';
  
