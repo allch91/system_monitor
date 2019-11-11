@@ -32,7 +32,7 @@
             </ul>
             <!-- END TOP-LEFT TOOLBAR-->
             <!--LOGO-->
-            <a class="page-brand" href="index.html">SO</a>
+            <a class="page-brand" href="/tweets">#</a>
             <!-- START TOP-RIGHT TOOLBAR-->
             <ul class="nav navbar-toolbar">
                 <li class="dropdown dropdown-user">
@@ -56,6 +56,10 @@
                         </li>
                         <li>
                             <a class="active" href="/dashboard">Panel de Resumen</a>
+                            <i class="nav-icon cui-speedometer"></i>
+                        </li>
+                        <li>
+                            <a href="http://localhost:3001/adminPage">Monitor de Recursos</a>
                         </li>
                     </ul>
                 </li>
@@ -82,7 +86,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card mb-4">
                             <div class="card-body flexbox-b">
-                                <div class="easypie mr-4" data-percent="100" data-bar-color="#ff4081" data-size="80" data-line-width="8">
+                                <div class="easypie mr-4" data-percent="100" data-bar-color="#A550C7" data-size="80" data-line-width="8">
                                     <span class="easypie-data font-26 text-pink"><i class="la la-users"></i></span>
                                 </div>
                                 <div>
@@ -95,7 +99,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card mb-4">
                             <div class="card-body flexbox-b">
-                                <div class="easypie mr-4" data-percent="100" data-bar-color="#5c6bc0" data-size="80" data-line-width="8">
+                                <div class="easypie mr-4" data-percent="100" data-bar-color="#50C7C7" data-size="80" data-line-width="8">
                                     <span class="easypie-data text-primary" style="font-size:32px;"><i class="la la-tags"></i></span>
                                 </div>
                                 <div>
@@ -105,16 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-body flexbox-b">
-                                <div class="easypie mr-4" data-percent="0" data-bar-color="#ff4081" data-size="80" data-line-width="8">
-                                    <span class="easypie-data font-26 text-pink"><i class="la la-photo"></i></span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 <div class="row">
@@ -148,7 +143,7 @@
                                         &nbsp;
                                     </div>
                                     <div class="text-center">
-                                         <h2 class="text-pink m-0">{{usrMaxTotal}}</h2>
+                                         <h2 class="text-blue m-0">{{usrMaxTotal}}</h2>
                                         <div class="text-muted">TWEETS</div>
                                     </div>
                                     <div class="text-center">
@@ -169,7 +164,7 @@
                                         &nbsp;
                                     </div>
                                     <div class="text-center">
-                                         <h2 class="text-pink m-0">{{categoriaMaxTotal}}</h2>
+                                         <h2 class="text-primary m-0">{{categoriaMaxTotal}}</h2>
                                         <div class="text-muted">TWEETS</div>
                                     </div>
                                     <div class="text-center">
