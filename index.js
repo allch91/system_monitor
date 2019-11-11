@@ -119,7 +119,7 @@ app.get('/tweets', (req, res) => {
             q = tag;
             query = {
                 //tag: new RegExp(q)
-                tag : q
+                categoria : new RegExp(q)
             }
         }
 

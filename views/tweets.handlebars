@@ -48,13 +48,13 @@
             <ul class="side-menu metismenu scroller">
                 <li class="active">
                     <a href="javascript:;"><i class="sidebar-item-icon ti-home"></i>
-                        <span class="nav-label">Dashboards</span><i class="fa fa-angle-left arrow"></i></a>
+                        <span class="nav-label">Menu</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse in">
                         <li>
-                            <a class="active" href="/tweets">tweets</a>
+                            <a class="active" href="/tweets">Panel de Tweets</a>
                         </li>
                         <li>
-                            <a href="/dashboard">dashboard</a>
+                            <a href="/dashboard">Panel de Resumen</a>
                         </li>
                     </ul>
                 </li>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="input-group-icon input-group-icon-left input-group-lg mb-4">
                         <span class="input-icon input-icon-right"><i class="ti-search"></i></span>
-                        <input id="searchtwt" class="form-control form-control-air font-light font-poppins border-0" type="text" placeholder="Buscar categoría tag=mi_categoria ... usuario user=mi_usuario" style="box-shadow:0 3px 6px rgba(10,16,20,.15);">
+                        <input id="search" class="form-control form-control-air font-light font-poppins border-0" type="text" placeholder="Buscar categoría tag=mi_categoria ... usuario user=mi_usuario" style="box-shadow:0 3px 6px rgba(10,16,20,.15);">
                     </div>
                     <div class="ibox">
                         <div class="ibox-body">
@@ -140,5 +140,17 @@
             }
         });
 
+    </script>
+    <script>
+        $(document).ready(function() {
+            setInterval(function() {
+                cache_clear()
+            }, 5000);
+        });
+
+        function cache_clear() {
+            window.location.reload(true);
+            // window.location.reload(); use this if you do not remove cache
+        }
     </script>
 </body>
