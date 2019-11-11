@@ -75,7 +75,7 @@
                     </div>
                     <div class="input-group-icon input-group-icon-left input-group-lg mb-4">
                         <span class="input-icon input-icon-right"><i class="ti-search"></i></span>
-                        <input id="search" class="form-control form-control-air font-light font-poppins border-0" type="text" placeholder="Buscar tweet ..." style="box-shadow:0 3px 6px rgba(10,16,20,.15);">
+                        <input id="searchtwt" class="form-control form-control-air font-light font-poppins border-0" type="text" placeholder="Buscar categoría tag=mi_categoria ... usuario user=mi_usuario" style="box-shadow:0 3px 6px rgba(10,16,20,.15);">
                     </div>
                     <div class="ibox">
                         <div class="ibox-body">
@@ -87,7 +87,7 @@
                                 {{#each tweets}}
                                 <li class="list-group-item py-3">
                                     <a class="media-img" href="javascript:;">
-                                        <img class="img-circle" src="img/users/u10.jpg" alt="image" width="54">
+                                        <img class="img-circle" src="https://dennismasaya.com/img/dennis.png" alt="image" width="54">
                                         {{this.nombre}}
                                     </a>
                                     
@@ -135,8 +135,8 @@
             var key = e.which || e.keyCode;
             if (key === 13) { // 13 is enter
                 var term = document.getElementById('search').value;
-                term = term.replace('#', '%23');
-                window.location.href = '/tweets?q=' + term;
+                //term = term.replace('#', '%23');
+                window.location.href = '/tweets?' + term;
             }
         });
 

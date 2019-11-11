@@ -110,13 +110,24 @@ app.get('/tweets', (req, res) => {
         const db = client.db(DB_NAME);
         const collection = db.collection(COLLECITON_NAME);
 
-        let q = req.query.q;
-
+        let tag = req.query.tag;
+        let user = req.query.user;
+        let q;
         let query = {};
-        if (q) {
-            q = q.replace('%23', '#');
+        if (tag) {
+            //q = q.replace('%23', '#');
+            q = tag;
             query = {
-                txt: new RegExp(q)
+                //tag: new RegExp(q)
+                tag : q
+            }
+        }
+
+        if (user) {
+            q = user;
+            //q = q.replace('%23', '#');
+            query = {
+                alias_usuario: new RegExp(q)
             }
         }
 
@@ -303,7 +314,7 @@ app.get('/api/tweet', (req, res) => {
     const nom = req.query.nom;
     const txt = req.query.txt;
     const categoria = req.query.tag;
-
+    console.log
     try {
 
         const tweet = {
