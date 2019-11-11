@@ -1,0 +1,79 @@
+{{define "ram_graph"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Consumo RAM</title>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@latest/dist/chartjs-plugin-streaming.min.js"></script>
+
+  {{ template "navbarstyle" }}
+</head>
+<body>
+  {{ template "navbar" }}
+<canvas id="myChart"></canvas>
+</body>
+<script type="text/javascript">
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    datasets: [{
+      data: [],
+      label: 'Total RAM',
+      borderColor: 'rgb(255, 0, 0)',
+      lineTension: 0,
+    },
+    {
+      data: [],
+      label: '% consumo RAM',
+      borderColor: 'rgb(0, 255, 0)',
+      lineTension: 0,
+    },
+    {
+      data: [],
+      label: 'Total RAM consumida (MB)',
+      borderColor: 'rgb(0, 0, 255)',
+      lineTension: 0,
+    }]
+  },
+  options: {
+        scales: {
+            xAxes: [{
+              type:'realtime',
+                realtime: {
+                    onRefresh: function(chart) {
+                        // request data so that it can be received in a callback function
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', '/ram_data');
+                        xhr.onload = function () {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                              
+                                chart.data.datasets[0].label='Total RAM:'+JSON.parse(xhr.responseText).x+'(MB)';
+                                chart.data.datasets[1].label='% consumo RAM: '+JSON.parse(xhr.responseText).z+'%';
+
+                                chart.data.datasets[2].data.push({
+                                  x: Date.now(),
+                                  y: JSON.parse(xhr.responseText).y
+                                });
+
+                                chart.update({
+                                    preservation: true
+                                });
+                            }
+                        };
+                        xhr.send();
+                    }
+                }
+            }]
+        }
+    }
+});
+</script>
+</html>
+{{end}}

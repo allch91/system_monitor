@@ -4,3 +4,7 @@ services:
     build: .
     ports:
       - "8080:3000"
+  monitor:
+    build: './ResourcesMonitoring'
+    ports:
+      - "3001:3001"

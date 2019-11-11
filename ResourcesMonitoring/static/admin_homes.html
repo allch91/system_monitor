@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Resumen</title>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@latest/dist/chartjs-plugin-streaming.min.js"></script>
+  <style>
+    /* Add a black background color to the top navigation */
+    .topnav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="topnav">
+    <a href="/adminPage">Resumen</a>
+    <a href="/cpu_graph">CPU</a>
+    <a href="/ram_graph">RAM</a>
+  </div>
+  <h1>Resumen General</h1>
+  <div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Tipo</th>
+								<th class="column2">Valor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="column1"># total procesos</td>
+								<td class="column2" id="procesos">{{.Procesos}}</td>
+							</tr>
+							<tr>
+								<td class="column1"># procesos ejecucion</td>
+								<td class="column2">{{.Ejecucion}}</td>
+							</tr>
+							<tr>
+								<td class="column1"># procesos suspendidos</td>
+								<td class="column2">{{.Suspendido}}</td>
+							</tr>
+							<tr>
+								<td class="column1"># procesos detenidos</td>
+								<td class="column2">{{.Detenido}}</td>
+							</tr>
+							<tr>
+								<td class="column1"># procesos zombie</td>
+								<td class="column2">{{.Zombie}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+  <h1>Listado Procesos</h1>
+  <div>
+    <table>
+      <thead>
+        <tr class="table100-head">
+          <th class="column1">Pid</th>
+          <th class="column2">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .Processes}}
+        <tr>
+          <td class="column1">{{.Pid}}</td>
+          <td class="column2" id="procesos">{{.Name}}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</body>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open('POST', '/admin_data');
+document.getElementById('procesos').set;
+</script>
+</html>
